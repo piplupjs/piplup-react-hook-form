@@ -121,7 +121,7 @@
   },
   "peerDependencies": {
     "@mui/material": ">=6.0.0 <10.0.0",
-    "@mui/x-date-pickers": ">=9.0.0 <10.0.0",
+    "@mui/x-date-pickers": ">=8.0.0 <10.0.0",
     "@piplup/rhf-core": "^5.0.0",
     "@piplup/utils": "3.2.4",
     "mui-chips-input": ">=4.0.1 <10.0.0",
