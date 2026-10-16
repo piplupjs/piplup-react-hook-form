@@ -41,9 +41,11 @@ describe('MuiXDesktopDateTimePickerElement', () => {
     const button = screen.getByLabelText('Choose date');
     await button.click();
 
-    const dayButton = screen.getByText(String(target.date()));
+    const dayButton = screen.getByRole('gridcell', { name: String(target.date()), exact: true });
     await expect.element(dayButton).toBeVisible();
     await dayButton.click();
+    // Wait for the picker to apply the selection before accepting it with OK
+    await expect.element(dayButton).toHaveAttribute('aria-selected', 'true');
 
     const okButton = screen.getByRole('button', { name: 'OK' });
     await expect.element(okButton).toBeVisible();
