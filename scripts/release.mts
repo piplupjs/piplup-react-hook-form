@@ -126,7 +126,7 @@ function question(rl: readline.Interface, prompt: string): Promise<string> {
 async function selectChoice<T extends string>(
   rl: readline.Interface,
   prompt: string,
-  choices: ReadonlyArray<{ label: string; value: T }>
+  choices: ReadonlyArray<{ label: string; value: T }>,
 ): Promise<T> {
   console.log(`\n  ${prompt}`);
   choices.forEach((c, i) => console.log(`    ${i + 1}) ${c.label}`));
@@ -168,7 +168,7 @@ function writePkg(dir: string, pkg: PackageJson): void {
  */
 function applyVersionBumps(
   deps: Record<string, string> | undefined,
-  releases: Map<string, string>
+  releases: Map<string, string>,
 ): Record<string, string> | undefined {
   if (!deps) return undefined;
 
@@ -205,7 +205,9 @@ function getPublishedVersion(name: string): string | null {
 
 // ─── Phase 1: Prompt ──────────────────────────────────────────────────────────
 
-async function phasePrompt(preset: { [K in keyof Answers]?: Answers[K] | undefined }): Promise<Answers> {
+async function phasePrompt(preset: {
+  [K in keyof Answers]?: Answers[K] | undefined;
+}): Promise<Answers> {
   logPhase('PHASE 1 — Prompt');
 
   // Skip the questions when every answer was passed on the command line (e.g. in CI)
@@ -247,7 +249,13 @@ async function phasePrepare(answers: Answers): Promise<void> {
   step('Checking git working tree…');
   const dirty = run('git status --porcelain');
   if (dirty) {
-    console.error('\n' + c.red(c.bold('  ✗ Working tree is not clean. Commit or stash your changes before releasing.')) + '\n');
+    console.error(
+      '\n' +
+        c.red(
+          c.bold('  ✗ Working tree is not clean. Commit or stash your changes before releasing.'),
+        ) +
+        '\n',
+    );
     console.error(c.dim(dirty) + '\n');
     process.exit(1);
   }
@@ -276,14 +284,20 @@ async function phaseVersion(answers: Answers): Promise<string> {
   const localVersion = readPkg(PACKAGES[0]!.dir).version;
   const currentVersion = PACKAGES.map((p) => getPublishedVersion(p.name)).reduce<string>(
     (max, v) => (v && semver.gt(v, max) ? v : max),
-    localVersion
+    localVersion,
   );
   if (currentVersion !== localVersion) {
-    step(c.yellow(`npm already has ${currentVersion} (repo is at ${localVersion}); bumping from ${currentVersion}.`));
+    step(
+      c.yellow(
+        `npm already has ${currentVersion} (repo is at ${localVersion}); bumping from ${currentVersion}.`,
+      ),
+    );
   }
   const newVersion = semver.inc(currentVersion, answers.versionBump);
   if (!newVersion) {
-    throw new Error(`semver.inc failed for version "${currentVersion}" with bump "${answers.versionBump}"`);
+    throw new Error(
+      `semver.inc failed for version "${currentVersion}" with bump "${answers.versionBump}"`,
+    );
   }
 
   step(`Bumping: ${c.yellow(currentVersion)} → ${c.green(c.bold(newVersion))}`);
@@ -342,13 +356,7 @@ async function phaseChangelog(answers: Answers, newVersion: string): Promise<voi
     commits = run('git log --format="- %s (%h)" --no-merges -20');
   }
 
-  const entry = [
-    `## ${newVersion} (${today})`,
-    '',
-    commits || '- Version bump',
-    '',
-    '',
-  ].join('\n');
+  const entry = [`## ${newVersion} (${today})`, '', commits || '- Version bump', '', ''].join('\n');
 
   const existing = fs.existsSync(changelogPath) ? fs.readFileSync(changelogPath, 'utf8') : '';
   fs.writeFileSync(changelogPath, entry + existing);
@@ -495,7 +503,13 @@ async function main(): Promise<void> {
   };
 
   if (dryRun) {
-    console.log('\n' + c.yellow(c.bold('  ⚠  DRY RUN — packages will NOT be published; all changes will be reverted.')) + '\n');
+    console.log(
+      '\n' +
+        c.yellow(
+          c.bold('  ⚠  DRY RUN — packages will NOT be published; all changes will be reverted.'),
+        ) +
+        '\n',
+    );
   }
 
   const state: ReleaseState = {
@@ -531,7 +545,9 @@ async function main(): Promise<void> {
     if (dryRun) {
       await phaseRollback(state, 'dry-run');
       logPhase('DRY RUN COMPLETE');
-      console.log(c.green('  Simulation finished successfully. Run without --dry-run to publish.') + '\n');
+      console.log(
+        c.green('  Simulation finished successfully. Run without --dry-run to publish.') + '\n',
+      );
     } else {
       logPhase('RELEASE COMPLETE');
       console.log(c.green(c.bold(`  v${newVersion} has been published to npm!`)));
