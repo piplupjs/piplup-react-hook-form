@@ -15,7 +15,7 @@
   "homepage": "https://www.piplupjs.com",
   "license": "MIT",
   "repository": {
-    "url": "git+https://github.com/sadik-malik/piplup-react-hook-form.git",
+    "url": "git+https://github.com/piplupjs/piplup-react-hook-form.git",
     "directory": "packages/rhf-core"
   },
   "files": [
