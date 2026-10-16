@@ -11,6 +11,9 @@ export default defineConfig({
       enabled: true,
       provider: playwright(),
       instances: [{ browser: 'chromium' }],
+      // The default 414px viewport is narrower than desktop picker popups. Focusing a day then
+      // scrolls the page between mousedown and mouseup, so the click misses the day.
+      viewport: { width: 1280, height: 800 },
     },
   },
 });
