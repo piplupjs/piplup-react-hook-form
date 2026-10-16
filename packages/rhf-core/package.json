@@ -44,7 +44,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@piplup/utils": "3.2.4"
+    "@piplup/utils": "^3.2.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
