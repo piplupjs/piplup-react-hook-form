@@ -27,12 +27,12 @@ pnpm add @piplup/rhf-core react-hook-form
 
 ## Hooks
 
-- [useFieldState](https://github.com/sadik-malik/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-field-state-adapter.ts)
-- [useFormSetFocus](https://github.com/sadik-malik/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-set-focus.ts)
-- [useFormReset](https://github.com/sadik-malik/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-reset.ts)
-- [useControllerAdapter](https://github.com/sadik-malik/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-controller-adapter.ts)
-- [useFieldStateAdapter](https://github.com/sadik-malik/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-field-state-adapter.ts)
-- [useFormStateAdapter](https://github.com/sadik-malik/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-state-adapter.ts)
+- [useFieldState](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-field-state-adapter.ts)
+- [useFormSetFocus](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-set-focus.ts)
+- [useFormReset](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-reset.ts)
+- [useControllerAdapter](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-controller-adapter.ts)
+- [useFieldStateAdapter](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-field-state-adapter.ts)
+- [useFormStateAdapter](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-state-adapter.ts)
 
 ## Components & Usage
 
