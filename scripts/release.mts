@@ -13,6 +13,9 @@
  * Usage:
  *   npm run release          # full release
  *   npm run release:dry      # dry run (reverts all changes at the end)
+ *
+ * Non-interactive (used by .github/workflows/release.yml):
+ *   npm run release -- --bump patch --tests --changelog --push
  */
 
 import { execSync } from 'node:child_process';
@@ -191,10 +194,31 @@ function applyVersionBumps(
   return changed ? result : deps;
 }
 
+/** Latest version of a package on npm, or `null` if it has never been published. */
+function getPublishedVersion(name: string): string | null {
+  try {
+    return run(`npm view ${name} version`) || null;
+  } catch {
+    return null;
+  }
+}
+
 // ─── Phase 1: Prompt ──────────────────────────────────────────────────────────
 
-async function phasePrompt(): Promise<Answers> {
+async function phasePrompt(preset: { [K in keyof Answers]?: Answers[K] | undefined }): Promise<Answers> {
   logPhase('PHASE 1 — Prompt');
+
+  // Skip the questions when every answer was passed on the command line (e.g. in CI)
+  if (
+    preset.runTests !== undefined &&
+    preset.versionBump !== undefined &&
+    preset.createChangelog !== undefined
+  ) {
+    step(`Run tests: ${preset.runTests ? 'yes' : 'no'}`);
+    step(`Version bump: ${preset.versionBump}`);
+    step(`Update CHANGELOG.md: ${preset.createChangelog ? 'yes' : 'no'}`);
+    return preset as Answers;
+  }
 
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -247,7 +271,16 @@ async function phasePrepare(answers: Answers): Promise<void> {
 async function phaseVersion(answers: Answers): Promise<string> {
   logPhase('PHASE 3 — Version');
 
-  const currentVersion = readPkg(PACKAGES[0]!.dir).version;
+  // Bump from whichever is higher: the version in the repo or the latest one on npm.
+  // This keeps a release from colliding with a version that was published without being committed.
+  const localVersion = readPkg(PACKAGES[0]!.dir).version;
+  const currentVersion = PACKAGES.map((p) => getPublishedVersion(p.name)).reduce<string>(
+    (max, v) => (v && semver.gt(v, max) ? v : max),
+    localVersion
+  );
+  if (currentVersion !== localVersion) {
+    step(c.yellow(`npm already has ${currentVersion} (repo is at ${localVersion}); bumping from ${currentVersion}.`));
+  }
   const newVersion = semver.inc(currentVersion, answers.versionBump);
   if (!newVersion) {
     throw new Error(`semver.inc failed for version "${currentVersion}" with bump "${answers.versionBump}"`);
@@ -361,6 +394,15 @@ async function phaseRelease(dryRun: boolean): Promise<void> {
   }
 }
 
+// ─── Push ─────────────────────────────────────────────────────────────────────
+
+async function phasePush(state: ReleaseState): Promise<void> {
+  logPhase('PUSH');
+
+  run(`git push origin HEAD refs/tags/${state.tagName}`);
+  step(`Pushed the release commit and tag ${state.tagName}.`);
+}
+
 // ─── Phase 7: Rollback ────────────────────────────────────────────────────────
 
 async function phaseRollback(state: ReleaseState, reason: 'dry-run' | 'error'): Promise<void> {
@@ -423,12 +465,34 @@ async function main(): Promise<void> {
       description:
         'Simulate the full release without publishing to npm. All changes are reverted at the end.',
     })
+    .option('bump', {
+      choices: ['patch', 'minor', 'major'] as const,
+      description: 'Version bump type (skips the prompt).',
+    })
+    .option('tests', {
+      type: 'boolean',
+      description: 'Run tests before releasing (skips the prompt). Use --no-tests to skip them.',
+    })
+    .option('changelog', {
+      type: 'boolean',
+      description: 'Update CHANGELOG.md (skips the prompt). Use --no-changelog to skip it.',
+    })
+    .option('push', {
+      type: 'boolean',
+      default: false,
+      description: 'Push the release commit and tag after publishing.',
+    })
     .help()
     .alias('h', 'help')
     .strict()
     .parse();
 
   const dryRun = argv['dry-run'] as boolean;
+  const preset: { [K in keyof Answers]?: Answers[K] | undefined } = {
+    runTests: argv.tests,
+    versionBump: argv.bump,
+    createChangelog: argv.changelog,
+  };
 
   if (dryRun) {
     console.log('\n' + c.yellow(c.bold('  ⚠  DRY RUN — packages will NOT be published; all changes will be reverted.')) + '\n');
@@ -443,7 +507,7 @@ async function main(): Promise<void> {
 
   try {
     // ── Phase 1: Prompt ──────────────────────────────────────────────────────
-    const answers = await phasePrompt();
+    const answers = await phasePrompt(preset);
 
     // ── Phase 2: Prepare ─────────────────────────────────────────────────────
     await phasePrepare(answers);
@@ -471,7 +535,19 @@ async function main(): Promise<void> {
     } else {
       logPhase('RELEASE COMPLETE');
       console.log(c.green(c.bold(`  v${newVersion} has been published to npm!`)));
-      console.log(c.dim('  Remember to push: git push && git push --tags') + '\n');
+      if (!argv.push) {
+        console.log(c.dim('  Remember to push: git push && git push --tags') + '\n');
+        return;
+      }
+      // The packages are already on npm, so a failed push must not roll back the release commit.
+      try {
+        await phasePush(state);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        console.error('\n' + c.red(c.bold(`  ✗ Push failed: ${message}`)));
+        console.error(c.dim(`  Push the release commit and ${state.tagName} manually.`) + '\n');
+        process.exit(1);
+      }
     }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
