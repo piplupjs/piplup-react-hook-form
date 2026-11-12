@@ -2,17 +2,23 @@
   "name": "@piplup/rhf-adapters",
   "version": "5.0.2",
   "private": false,
-  "description": "A library designed to streamline the integration of react-hook-form with UI frameworks by managing boilerplate code.",
+  "description": "Connect MUI, MUI X date pickers and native inputs to react-hook-form without a Controller on every field.",
   "keywords": [
+    "material-ui",
+    "mui",
+    "mui-x",
     "react-hook-form",
     "react-hook-form @mui/base",
     "react-hook-form @mui/material",
     "react-hook-form @mui/x-date-pickers",
     "react-hook-form adapters",
+    "react-hook-form date picker",
     "react-hook-form material",
-    "react-hook-form mui"
+    "react-hook-form mui",
+    "react-hook-form mui x date pickers",
+    "react-hook-form-mui"
   ],
-  "homepage": "https://www.piplupjs.com",
+  "homepage": "https://www.piplupjs.com/docs/forms",
   "license": "MIT",
   "repository": {
     "url": "git+https://github.com/piplupjs/piplup-react-hook-form.git",

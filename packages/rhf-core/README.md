@@ -1,11 +1,15 @@
 # @piplup/rhf-core
 
+[![npm](https://img.shields.io/npm/v/@piplup/rhf-core)](https://www.npmjs.com/package/@piplup/rhf-core)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@piplup/rhf-core)
 
-This package builds upon `react-hook-form` by offering additional utility hooks
-such as `useControllerAdapter`, `useFieldStateAdapter`, `useFormStateAdapter`,
-`useFieldState`, `useFormState`, `useFormSetFocus` and `useFormReset`. These
-hooks simplify component composition and help reduce boilerplate code.
+The primitives behind
+[`@piplup/rhf-adapters`](https://www.piplupjs.com/docs/forms): hooks that adapt
+any component to a [react-hook-form](https://react-hook-form.com) field, plus a
+form container and an error provider. Use it on its own to connect a component
+library the adapters don't cover.
+
+**[Documentation](https://www.piplupjs.com/docs/rhf-core/installation)**
 
 ## Installation
 
@@ -13,28 +17,29 @@ hooks simplify component composition and help reduce boilerplate code.
 npm install @piplup/rhf-core react-hook-form
 ```
 
-or
+## What's included
 
-```bash
-yarn add @piplup/rhf-core react-hook-form
-```
+- [`useControllerAdapter`](https://www.piplupjs.com/docs/rhf-core/hooks/use-controller-adapter):
+  connects a custom input component to a field. Every adapter is built on it.
+- [`useFieldState`](https://www.piplupjs.com/docs/rhf-core/hooks/use-field-state):
+  reads the validation and interaction state of one field.
+- [`useFieldStateAdapter`](https://www.piplupjs.com/docs/rhf-core/hooks/use-field-state-adapter)
+  and
+  [`useFormStateAdapter`](https://www.piplupjs.com/docs/rhf-core/hooks/use-form-state-adapter):
+  turn field or form state into props such as `error`, `helperText` and
+  `disabled`, for labels, helper text and buttons.
+- [`useFormReset`](https://www.piplupjs.com/docs/rhf-core/hooks/use-form-reset)
+  and
+  [`useFormSetFocus`](https://www.piplupjs.com/docs/rhf-core/hooks/use-form-set-focus):
+  `reset` and `setFocus` from form context or a given `control`.
+- [`FormContainer`](https://www.piplupjs.com/docs/rhf-core/components/form-container):
+  renders the `<form>` with the form context and error provider in place.
+- [`FormErrorProvider`](https://www.piplupjs.com/docs/rhf-core/components/form-error-provider):
+  formats every field's error message in one place.
 
-or
+New to these packages? Start with
+[Using MUI with React Hook Form](https://www.piplupjs.com/docs/react-hook-form-mui).
 
-```bash
-pnpm add @piplup/rhf-core react-hook-form
-```
+## License
 
-## Hooks
-
-- [useFieldState](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-field-state-adapter.ts)
-- [useFormSetFocus](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-set-focus.ts)
-- [useFormReset](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-reset.ts)
-- [useControllerAdapter](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-controller-adapter.ts)
-- [useFieldStateAdapter](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-field-state-adapter.ts)
-- [useFormStateAdapter](https://github.com/piplupjs/piplup-react-hook-form/blob/main/packages/rhf-core/src/hooks/use-form-state-adapter.ts)
-
-## Components & Usage
-
-Refer to [storybook](https://www.piplupjs.com) examples for list of available
-components and its usage.
+MIT
