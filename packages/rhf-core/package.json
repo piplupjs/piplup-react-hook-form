@@ -2,17 +2,20 @@
   "name": "@piplup/rhf-core",
   "version": "5.0.2",
   "private": false,
-  "description": "Core library containing hooks and utility functions designed to streamline the integration of react-hook-form with UI frameworks, by managing boilerplate code.",
+  "description": "Hooks, a form container and an error provider for connecting any React component to react-hook-form without Controller boilerplate.",
   "keywords": [
     "react-hook-form",
     "react-hook-form adapters",
+    "react-hook-form controller",
     "react-hook-form core",
+    "react-hook-form custom input",
     "react-hook-form material",
     "react-hook-form mui",
     "rhf-adapters",
-    "rhf-core"
+    "rhf-core",
+    "useController"
   ],
-  "homepage": "https://www.piplupjs.com",
+  "homepage": "https://www.piplupjs.com/docs/rhf-core/installation",
   "license": "MIT",
   "repository": {
     "url": "git+https://github.com/piplupjs/piplup-react-hook-form.git",

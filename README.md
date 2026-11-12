@@ -3,6 +3,11 @@
 Welcome to @piplup! This repository contains a collection of useful libraries
 empowering Your React apps with essential libraries and tools.
 
+**[Documentation](https://www.piplupjs.com/docs/forms)** ·
+[Using MUI with React Hook Form](https://www.piplupjs.com/docs/react-hook-form-mui)
+·
+[Date pickers with React Hook Form](https://www.piplupjs.com/docs/react-hook-form-date-picker)
+
 ## [@piplup/rhf-core](./packages/rhf-core/README.md)
 
 [![npm](https://img.shields.io/npm/v/@piplup/rhf-core)](https://www.npmjs.com/package/@piplup/rhf-core)
