@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { Input, type InputProps } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiInputAdapterProps, useMuiInputAdapterProps } from './adapter';
+
+import { Input } from '@mui/material';
+
+import { useMuiInputAdapterProps } from './adapter';
+
+import type { UseMuiInputAdapterProps } from './adapter';
+import type { InputProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiInputElementProps<
   TTransformedValue,

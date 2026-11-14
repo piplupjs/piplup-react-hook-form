@@ -1,7 +1,9 @@
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
 import { test, expect, describe } from 'vitest';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
+
 import { MuiInputLabelElement } from './element';
 
 describe('MuiInputLabelElement', () => {
@@ -22,7 +24,7 @@ describe('MuiInputLabelElement', () => {
   test('forwards className to the label', async () => {
     const screen = await render(
       <FormContainer>
-        <MuiInputLabelElement data-testid="label" className="my-label" name="my-label">
+        <MuiInputLabelElement className="my-label" data-testid="label" name="my-label">
           Label
         </MuiInputLabelElement>
       </FormContainer>,

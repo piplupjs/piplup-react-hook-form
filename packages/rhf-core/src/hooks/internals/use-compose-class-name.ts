@@ -1,4 +1,4 @@
-import { type UseComposeModifierStateResult } from './use-compose-modifier-state';
+import type { UseComposeModifierStateResult } from './use-compose-modifier-state';
 
 /**
  * Props for the `useComposeClassName` hook.

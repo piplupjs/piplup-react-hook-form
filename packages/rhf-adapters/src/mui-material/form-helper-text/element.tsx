@@ -1,7 +1,12 @@
 import * as React from 'react';
-import { FormHelperText, type FormHelperTextProps } from '@mui/material';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useMuiFormHelperTextAdapter, type UseMuiFormHelperTextProps } from './adapter';
+
+import { FormHelperText } from '@mui/material';
+
+import { useMuiFormHelperTextAdapter } from './adapter';
+
+import type { UseMuiFormHelperTextProps } from './adapter';
+import type { FormHelperTextProps } from '@mui/material';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiFormHelperTextElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -60,7 +65,7 @@ function MuiFormHelperTextComponent<
 
   if (renderOnError && !adapter.error) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
-    return <></>;
+    return <React.Fragment></React.Fragment>;
   }
 
   return <FormHelperText {...rest} {...adapter} />;

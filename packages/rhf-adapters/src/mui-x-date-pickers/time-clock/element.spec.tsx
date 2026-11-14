@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { describe, expect, test } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { mouse } from 'vitest-browser-commands/playwright';
+
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { FormContainer } from '@piplup/rhf-core';
 import dayjs from 'dayjs';
+import { describe, expect, test } from 'vitest';
+import { mouse } from 'vitest-browser-commands/playwright';
+import { render } from 'vitest-browser-react';
+
 import { MuiXTimeClockElement } from './element';
 
 describe('MuiXTimeClockElement', () => {

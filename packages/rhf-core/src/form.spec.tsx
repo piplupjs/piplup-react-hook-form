@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import * as React from 'react';
+
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, it, expect, vi } from 'vitest';
 import { useForm, useFormContext } from 'react-hook-form';
+import { describe, it, expect, vi } from 'vitest';
+
 import { FormErrorParserContext } from './context/form-error-parser-context';
 import { FormContainer } from './form';
 
@@ -81,7 +83,10 @@ describe('FormContainer', () => {
       const parse = React.useContext(FormErrorParserContext);
       const [t, setT] = React.useState<null | string>(null);
       React.useEffect(() => {
-        if (parse) setT(String(typeof parse));
+        if (parse) {
+          // eslint-disable-next-line react/set-state-in-effect -- the test checks what the effect sees
+          setT(String(typeof parse));
+        }
       }, [parse]);
       return <div data-cy="parser">{t}</div>;
     };

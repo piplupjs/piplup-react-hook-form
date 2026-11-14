@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useHtmlTextareaAdapter, type UseHtmlTextareaAdapterProps } from './adapter';
+
+import { useHtmlTextareaAdapter } from './adapter';
+
+import type { UseHtmlTextareaAdapterProps } from './adapter';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface HtmlTextareaElementProps<
   TTransformedValue extends number | readonly string[] | string | undefined,

@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { test, expect, describe } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { FormContainer } from '@piplup/rhf-core';
-import { MuiOtpInputElement } from './element';
+import { test, expect, describe } from 'vitest';
 import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
+import { MuiOtpInputElement } from './element';
 
 describe('MuiOtpInputElement', () => {
   test('renders initial defaultValue across inputs', async () => {

@@ -1,17 +1,17 @@
 import * as React from 'react';
-import {
-  type FieldValues,
-  FormProvider as ReactHookFormProvider,
-  type SubmitErrorHandler,
-  type UseFormProps,
-  useForm,
-  type FormProviderProps as ReactHookFormProviderProps,
-  type SubmitHandler,
+
+import { FormProvider as ReactHookFormProvider, useForm } from 'react-hook-form';
+
+import { FormErrorParserContext } from './context/form-error-parser-context';
+
+import type { FormErrorParserFn } from './context/form-error-parser-context';
+import type {
+  FieldValues,
+  SubmitErrorHandler,
+  UseFormProps,
+  FormProviderProps as ReactHookFormProviderProps,
+  SubmitHandler,
 } from 'react-hook-form';
-import {
-  FormErrorParserContext,
-  type FormErrorParserFn,
-} from './context/form-error-parser-context';
 
 export interface FormErrorProviderProps {
   children: React.ReactNode;

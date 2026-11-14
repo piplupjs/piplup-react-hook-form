@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { test, expect, describe, vi } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import { FormContainer } from '@piplup/rhf-core';
+import { test, expect, describe, vi } from 'vitest';
+import { render } from 'vitest-browser-react';
+
 import { MuiRadioGroupElement } from './element';
 
 describe('MuiRadioGroupElement', () => {
@@ -57,7 +59,7 @@ describe('MuiRadioGroupElement', () => {
 
     const screen = await render(
       <FormContainer>
-        <MuiRadioGroupElement name="choice" onChange={(e) => onChange(e)}>
+        <MuiRadioGroupElement name="choice" onChange={(event) => onChange(event)}>
           <FormControlLabel control={<Radio name="choice" value="a" />} label="A" />
         </MuiRadioGroupElement>
       </FormContainer>,

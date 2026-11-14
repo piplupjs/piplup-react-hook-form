@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useHtmlFormLabelAdapter, type UseHtmlFormLabelProps } from './adapter';
+
+import { useHtmlFormLabelAdapter } from './adapter';
+
+import type { UseHtmlFormLabelProps } from './adapter';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface HtmlFormLabelElementProps<
   TFieldValues extends FieldValues = FieldValues,

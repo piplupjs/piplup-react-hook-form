@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { type AutocompleteRenderInputParams } from '@mui/material';
-import { useControllerAdapter, type UseControllerAdapterProps } from '@piplup/rhf-core';
-import { type PathValue, type FieldPath, type FieldValues } from 'react-hook-form';
+
+import { useControllerAdapter } from '@piplup/rhf-core';
+
+import type { AutocompleteRenderInputParams } from '@mui/material';
+import type { UseControllerAdapterProps } from '@piplup/rhf-core';
+import type { PathValue, FieldPath, FieldValues } from 'react-hook-form';
 
 type AutocompleteExtendedRenderInputParams = AutocompleteRenderInputParams & {
   error: boolean;

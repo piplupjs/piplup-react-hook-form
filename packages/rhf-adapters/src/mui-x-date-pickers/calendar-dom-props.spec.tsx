@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { afterEach, describe, test, expect, vi } from 'vitest';
-import { userEvent } from 'vitest/browser';
-import { render } from 'vitest-browser-react';
+
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { FormContainer } from '@piplup/rhf-core';
+import { afterEach, describe, test, expect, vi } from 'vitest';
+import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
 import { MuiXDateCalendarElement } from './date-calendar';
 import { MuiXMonthCalendarElement } from './month-calendar';
 import { MuiXYearCalendarElement } from './year-calendar';
@@ -25,13 +27,13 @@ describe('calendar elements', () => {
         <FormContainer onError={onError}>
           <MuiXDateCalendarElement
             name="day"
-            required
             shouldDisableDate={() => false}
             shouldDisableMonth={() => false}
             shouldDisableYear={() => false}
+            required
           />
-          <MuiXMonthCalendarElement name="month" required shouldDisableMonth={() => false} />
-          <MuiXYearCalendarElement name="year" required shouldDisableYear={() => false} />
+          <MuiXMonthCalendarElement name="month" shouldDisableMonth={() => false} required />
+          <MuiXYearCalendarElement name="year" shouldDisableYear={() => false} required />
           <button type="submit">Submit</button>
         </FormContainer>
       </LocalizationProvider>,
@@ -42,7 +44,9 @@ describe('calendar elements', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
     await expect.poll(() => onError.mock.calls.length).toBe(1);
     // Let the error-state render commit before reading the warnings.
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => {
+      setTimeout(resolve, 100);
+    });
 
     const domPropWarnings = consoleError.mock.calls
       .map((args) => args.map(String).join(' '))

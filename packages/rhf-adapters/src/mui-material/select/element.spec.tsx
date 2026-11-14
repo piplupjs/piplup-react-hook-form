@@ -1,11 +1,14 @@
 import * as React from 'react';
+
+import { MenuItem, inputBaseClasses } from '@mui/material';
+import { FormContainer } from '@piplup/rhf-core';
 import { expect, test, describe, vi } from 'vitest';
 import { userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { MenuItem, inputBaseClasses } from '@mui/material';
-import { FormContainer } from '@piplup/rhf-core';
-import { MuiSelectElement } from './element';
+
 import { MuiFormHelperTextElement } from '../form-helper-text/element';
+
+import { MuiSelectElement } from './element';
 
 describe('MuiSelectElement', () => {
   test('mounts and allows selecting an option', async () => {
@@ -69,7 +72,7 @@ describe('MuiSelectElement', () => {
 
     const screen = await render(
       <FormContainer defaultValues={{ fruit: '' }}>
-        <MuiSelectElement name="fruit" onChange={(e) => onChange(e)}>
+        <MuiSelectElement name="fruit" onChange={(event) => onChange(event)}>
           <MenuItem value="">Select Fruit</MenuItem>
           <MenuItem value="apple">Apple</MenuItem>
           <MenuItem value="banana">Banana</MenuItem>

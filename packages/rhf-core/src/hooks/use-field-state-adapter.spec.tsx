@@ -1,10 +1,16 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useFormContext } from 'react-hook-form';
 import { describe, it, expect } from 'vitest';
-import { type FieldPath, type FieldValues, useFormContext } from 'react-hook-form';
+
 import { FormContainer } from '../form';
-import { useFieldStateAdapter, type UseFieldStateAdapterProps } from './use-field-state-adapter';
+
+import { useFieldStateAdapter } from './use-field-state-adapter';
+
+import type { UseFieldStateAdapterProps } from './use-field-state-adapter';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 function AdapterConsumer<
   TFieldValues extends FieldValues = FieldValues,
@@ -66,9 +72,9 @@ describe('useFieldStateAdapter', () => {
       <FormContainer onSubmit={() => {}}>
         <InputRequired />
         <AdapterConsumer
-          style={(modifierState) => (modifierState.error ? { color: 'rgb(255, 0, 0)' } : {})}
           helperText="H"
           name="name"
+          style={(modifierState) => (modifierState.error ? { color: 'rgb(255, 0, 0)' } : {})}
         />
         <button type="submit">Submit</button>
       </FormContainer>,

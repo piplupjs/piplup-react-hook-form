@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { useControllerAdapter, type UseControllerAdapterProps } from '@piplup/rhf-core';
-import { type PathValue, type FieldPath, type FieldValues } from 'react-hook-form';
+
+import { useControllerAdapter } from '@piplup/rhf-core';
+
+import type { UseControllerAdapterProps } from '@piplup/rhf-core';
+import type { PathValue, FieldPath, FieldValues } from 'react-hook-form';
 
 function isEqualRadioOrCheckboxValue(a: unknown, b: unknown) {
   if (typeof a === 'object' && b !== null) {
@@ -89,7 +92,8 @@ export function useHtmlInputAdapter<
           // can only be set by a user, and not programmatically.
           // https://legacy.reactjs.org/docs/uncontrolled-components.html#the-file-input-tag
           return undefined as TTransformedValue;
-        } else if (typeof value === 'undefined') {
+        }
+        if (typeof value === 'undefined') {
           return '' as TTransformedValue;
         }
         return value;

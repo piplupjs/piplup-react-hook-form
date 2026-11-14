@@ -1,8 +1,10 @@
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
 import { describe, test, expect } from 'vitest';
 import { userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
+
 import {
   MuiFilledInputElement,
   MuiInputBaseElement,

@@ -1,10 +1,13 @@
 import * as React from 'react';
-import { test, vi, expect, describe } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { FormContainer } from '@piplup/rhf-core';
 import { useForm } from 'react-hook-form';
-import { HtmlButtonElement } from './element';
+import { test, vi, expect, describe } from 'vitest';
+import { render } from 'vitest-browser-react';
+
 import { HtmlInputElement } from '../input';
+
+import { HtmlButtonElement } from './element';
 
 describe('HtmlButtonElement', () => {
   test('calls provided onClick and does not reset when type is button', async () => {
@@ -16,7 +19,7 @@ describe('HtmlButtonElement', () => {
           Name
           <HtmlInputElement name="name" />
         </label>
-        <HtmlButtonElement onClick={onClick} type="button" data-testid="">
+        <HtmlButtonElement data-testid="" onClick={onClick} type="button">
           Submit
         </HtmlButtonElement>
       </FormContainer>,
@@ -40,9 +43,9 @@ describe('HtmlButtonElement', () => {
         <form onSubmit={handleSubmit(() => {})} noValidate>
           <label>
             Input
-            <HtmlInputElement control={control} name="foo" data-testid="foo" />
+            <HtmlInputElement control={control} data-testid="foo" name="foo" />
           </label>
-          <HtmlButtonElement data-testid="reset" control={control} type="reset" onClick={onClick}>
+          <HtmlButtonElement control={control} data-testid="reset" onClick={onClick} type="reset">
             Reset
           </HtmlButtonElement>
         </form>

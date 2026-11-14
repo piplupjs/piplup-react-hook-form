@@ -1,12 +1,16 @@
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
 import { test, expect, describe } from 'vitest';
 import { userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
+
 import { NumberFormatBaseElement } from './element';
 
 const format = (val: string) => {
-  if (val === '') return '';
+  if (val === '') {
+    return '';
+  }
   let month = val.substring(0, 2);
   const year = val.substring(2, 4);
 
@@ -31,10 +35,14 @@ const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     // if there is number before slash with just one character add 0 prefix
     if (value.split('/')[0].length === 1) {
       target.value = `0${value}`;
-      if (target.selectionStart !== null) target.selectionStart += 1;
+      if (target.selectionStart !== null) {
+        target.selectionStart += 1;
+      }
     }
 
-    if (target.selectionStart !== null) target.selectionStart += 1;
+    if (target.selectionStart !== null) {
+      target.selectionStart += 1;
+    }
     event.preventDefault();
   }
 };

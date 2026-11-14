@@ -1,7 +1,10 @@
 import type * as React from 'react';
-import { type PickerValidDate } from '@mui/x-date-pickers';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useUnstableBaseDatePickerAdapter, type UseBaseDatePickerAdapterProps } from '../internals';
+
+import { useUnstableBaseDatePickerAdapter } from '../internals';
+
+import type { UseBaseDatePickerAdapterProps } from '../internals';
+import type { PickerValidDate } from '@mui/x-date-pickers';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface UseMuiXDateFieldAdapterProps<
   TTransformedValue extends PickerValidDate,

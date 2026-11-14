@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { type FieldErrors, type FieldError, type FieldValues } from 'react-hook-form';
+
+import type { FieldErrors, FieldError, FieldValues } from 'react-hook-form';
 
 export type FormErrorParserFn<TFieldValues extends FieldValues = FieldValues> = (
   error?: FieldError | FieldErrors<TFieldValues>,

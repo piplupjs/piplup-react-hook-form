@@ -1,20 +1,14 @@
 import type * as React from 'react';
-import {
-  type DateValidationError,
-  validateDate,
-  type ValidateDateProps,
-  usePickerAdapter,
-} from '@mui/x-date-pickers';
-import {
-  applyDefaultDate,
-  type PickerValidValue,
-  useDefaultDates,
-} from '@mui/x-date-pickers/internals';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import {
-  useUnstableBasePickerAdapter as useBasePickerAdapter,
-  type UseBasePickerAdapterProps,
-} from '../internals';
+
+import { validateDate, usePickerAdapter } from '@mui/x-date-pickers';
+import { applyDefaultDate, useDefaultDates } from '@mui/x-date-pickers/internals';
+
+import { useUnstableBasePickerAdapter as useBasePickerAdapter } from '../internals';
+
+import type { UseBasePickerAdapterProps } from '../internals';
+import type { DateValidationError, ValidateDateProps } from '@mui/x-date-pickers';
+import type { PickerValidValue } from '@mui/x-date-pickers/internals';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 type ValidationProps = Omit<
   ValidateDateProps,

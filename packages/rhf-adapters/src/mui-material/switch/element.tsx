@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { Switch, type SwitchProps } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiSwitchAdapterProps, useMuiSwitchAdapter } from './adapter';
+
+import { Switch } from '@mui/material';
+
+import { useMuiSwitchAdapter } from './adapter';
+
+import type { UseMuiSwitchAdapterProps } from './adapter';
+import type { SwitchProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiSwitchElementProps<
   TTransformedValue,

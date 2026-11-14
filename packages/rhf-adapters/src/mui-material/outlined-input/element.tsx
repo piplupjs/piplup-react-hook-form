@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { OutlinedInput, type OutlinedInputProps } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiOutlinedInputAdapterProps, useMuiOutlinedInputAdapter } from './adapter';
+
+import { OutlinedInput } from '@mui/material';
+
+import { useMuiOutlinedInputAdapter } from './adapter';
+
+import type { UseMuiOutlinedInputAdapterProps } from './adapter';
+import type { OutlinedInputProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiOutlinedInputElementProps<
   TTransformedValue,

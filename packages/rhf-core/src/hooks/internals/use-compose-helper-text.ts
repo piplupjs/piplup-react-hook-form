@@ -1,11 +1,9 @@
 import * as React from 'react';
-import {
-  type FieldErrors,
-  type FieldError,
-  type FieldPath,
-  type FieldValues,
-} from 'react-hook-form';
-import { FormErrorParserContext, type FormErrorParserFn } from '../../context';
+
+import { FormErrorParserContext } from '../../context';
+
+import type { FormErrorParserFn } from '../../context';
+import type { FieldErrors, FieldError, FieldPath, FieldValues } from 'react-hook-form';
 
 /**
  * The default error parser function that extracts the message from a given error object.

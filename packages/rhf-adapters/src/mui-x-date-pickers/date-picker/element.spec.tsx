@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { describe, test, expect, vi } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { FormContainer } from '@piplup/rhf-core';
 import dayjs from 'dayjs';
-import { MuiXDatePickerElement } from './element';
+import { describe, test, expect, vi } from 'vitest';
 import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
+import { MuiXDatePickerElement } from './element';
 
 describe('MuiXDatePickerElement', () => {
   test('renders initial defaultValue and includes the year', async () => {
@@ -53,7 +55,7 @@ describe('MuiXDatePickerElement', () => {
     const screen = await render(
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <FormContainer defaultValues={{ date: dayjs().subtract(1, 'year') }} onSubmit={onSubmit}>
-          <MuiXDatePickerElement disablePast name="date" rules={rules} />
+          <MuiXDatePickerElement name="date" rules={rules} disablePast />
           <button type="submit">Submit</button>
         </FormContainer>
       </LocalizationProvider>,
@@ -71,9 +73,9 @@ describe('MuiXDatePickerElement', () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <FormContainer defaultValues={{ date: dayjs().add(1, 'day') }} onSubmit={onSubmit}>
           <MuiXDatePickerElement
-            disablePast
             name="date"
             rules={{ validate: () => 'Custom check failed' }}
+            disablePast
           />
           <button type="submit">Submit</button>
         </FormContainer>

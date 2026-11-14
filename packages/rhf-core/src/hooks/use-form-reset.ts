@@ -1,5 +1,9 @@
+/* eslint-disable no-underscore-dangle -- react-hook-form's control keeps these fields private */
 import * as React from 'react';
-import { type Control, type FieldValues, type UseFormReset, useFormContext } from 'react-hook-form';
+
+import { useFormContext } from 'react-hook-form';
+
+import type { Control, FieldValues, UseFormReset } from 'react-hook-form';
 
 /**
  * Defines the properties for the `useFormReset` hook.

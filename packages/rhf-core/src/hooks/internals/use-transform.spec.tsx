@@ -1,8 +1,12 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useUnstableTransform as useTransform, type UseTransformProps } from './use-transform';
+
+import { useUnstableTransform as useTransform } from './use-transform';
+
+import type { UseTransformProps } from './use-transform';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 function Comp<
   TFieldValues extends FieldValues = FieldValues,

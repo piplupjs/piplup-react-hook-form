@@ -1,10 +1,15 @@
 import * as React from 'react';
+
 import { act, render, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useFormContext } from 'react-hook-form';
 import { describe, it, expect, vi } from 'vitest';
-import { type FieldValues, type RegisterOptions, useFormContext } from 'react-hook-form';
+
 import { FormContainer } from '../form';
+
 import { useFieldState } from './use-field-state';
+
+import type { FieldValues, RegisterOptions } from 'react-hook-form';
 
 function InputRegister({
   name,
@@ -68,7 +73,7 @@ describe('useFieldState', () => {
     const onError = vi.fn();
 
     const { container } = render(
-      <FormContainer onError={(e) => onError(e)} onSubmit={() => onSubmit()}>
+      <FormContainer onError={(error) => onError(error)} onSubmit={() => onSubmit()}>
         <InputRegister name="name" rules={{ required: true }} />
         <FieldStateConsumer name="name" />
         <button type="submit">Submit</button>

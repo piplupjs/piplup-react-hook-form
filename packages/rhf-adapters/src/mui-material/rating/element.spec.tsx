@@ -1,8 +1,10 @@
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
 import { test, expect, describe, vi } from 'vitest';
 import { userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
+
 import { MuiRatingElement } from './element';
 
 describe('MuiRatingElement', () => {
@@ -55,7 +57,7 @@ describe('MuiRatingElement', () => {
 
     const screen = await render(
       <FormContainer>
-        <MuiRatingElement name="stars" onChange={(e) => onChange(e)} />
+        <MuiRatingElement name="stars" onChange={(event) => onChange(event)} />
       </FormContainer>,
     );
 

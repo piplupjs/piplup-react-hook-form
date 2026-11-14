@@ -1,27 +1,32 @@
 import * as React from 'react';
+
 import { execSequentially, useForkRef } from '@piplup/utils';
-import {
-  useController,
-  type UseControllerProps,
-  type FieldPath,
-  type FieldValues,
-  type PathValue,
-  type FieldPathValue,
-  type Control,
-} from 'react-hook-form';
+import { useController } from 'react-hook-form';
+
 import {
   useUnstableComposeClassName as useComposeClassName,
-  type UseComposeClassNameProps,
-  type UseComposeHelperTextProps,
   useUnstableComposeHelperText as useComposeHelperText,
   useUnstableComposeModifierState as useComposeModifierState,
-  type UseComposeModifierStateProps,
   useUnstableComposeRules as useComposeRules,
-  type UseComposeRulesProps,
   useUnstableComposeStyle as useComposeStyle,
-  type UseComposeStyleProps,
   useUnstableTransform as useTransform,
 } from './internals';
+
+import type {
+  UseComposeClassNameProps,
+  UseComposeHelperTextProps,
+  UseComposeModifierStateProps,
+  UseComposeRulesProps,
+  UseComposeStyleProps,
+} from './internals';
+import type {
+  UseControllerProps,
+  FieldPath,
+  FieldValues,
+  PathValue,
+  FieldPathValue,
+  Control,
+} from 'react-hook-form';
 
 // @see https://github.com/mui/material-ui/issues/42020
 declare const UNDEFINED_VOID_ONLY: unique symbol;

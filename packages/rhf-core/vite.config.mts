@@ -1,8 +1,10 @@
 import { readFileSync } from 'node:fs';
 import * as path from 'path';
+
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+
 import packageJSON from './package.json';
 
 const license = readFileSync(path.resolve('./LICENSE'), {
@@ -14,7 +16,6 @@ const external = [...new Set([...Object.keys(packageJSON.peerDependencies), 'rea
 
 export default defineConfig({
   build: {
-    sourcemap: false,
     commonjsOptions: {
       transformMixedEsModules: true,
     },
@@ -44,6 +45,7 @@ export default defineConfig({
         sourcemapExcludeSources: true,
       },
     },
+    sourcemap: false,
   },
   cacheDir: '../../node_modules/.vite/packages/rhf-core',
   plugins: [

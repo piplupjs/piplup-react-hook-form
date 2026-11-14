@@ -1,13 +1,15 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { type FieldValues } from 'react-hook-form';
-import {
-  useUnstableComposeHelperText as useComposeHelperText,
-  type UseComposeHelperTextProps,
-} from './use-compose-helper-text';
-import { type FormErrorParserFn } from '../../context';
+
 import { FormErrorProvider } from '../../form';
+
+import { useUnstableComposeHelperText as useComposeHelperText } from './use-compose-helper-text';
+
+import type { UseComposeHelperTextProps } from './use-compose-helper-text';
+import type { FormErrorParserFn } from '../../context';
+import type { FieldValues } from 'react-hook-form';
 
 function Comp(props: UseComposeHelperTextProps<FieldValues>) {
   const txt = useComposeHelperText(props);
@@ -28,7 +30,7 @@ describe('useComposeHelperText', () => {
   });
 
   it('honors context-provided parser', () => {
-    const parser: FormErrorParserFn = (e) => 'parsed:' + JSON.stringify(e);
+    const parser: FormErrorParserFn = (error) => `parsed:${JSON.stringify(error)}`;
     const { container } = render(
       <FormErrorProvider errorParser={parser}>
         <Comp fieldError={{ message: 'err', type: 'custom' }} composeHelperText />

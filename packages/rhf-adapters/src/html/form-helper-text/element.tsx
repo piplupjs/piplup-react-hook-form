@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useHtmlFormHelperTextAdapter, type UseHtmlFormHelperTextProps } from './adapter';
+
+import { useHtmlFormHelperTextAdapter } from './adapter';
+
+import type { UseHtmlFormHelperTextProps } from './adapter';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface HtmlFormHelperTextElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -62,7 +65,7 @@ function HtmlFormHelperTextComponent<
 
   if (renderOnError && !hasError) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
-    return <></>;
+    return <React.Fragment></React.Fragment>;
   }
 
   return <p {...rest} {...adapter} />;

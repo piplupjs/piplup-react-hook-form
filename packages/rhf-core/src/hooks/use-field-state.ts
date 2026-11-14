@@ -1,11 +1,6 @@
-import {
-  type Control,
-  type FieldPath,
-  get,
-  useFormState,
-  type ControllerFieldState,
-  type FieldValues,
-} from 'react-hook-form';
+import { get, useFormState } from 'react-hook-form';
+
+import type { Control, FieldPath, ControllerFieldState, FieldValues } from 'react-hook-form';
 
 /**
  * Defines the properties for the `useFieldState` hook.

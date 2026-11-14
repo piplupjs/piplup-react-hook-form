@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { type FieldValues } from 'react-hook-form';
-import { useHtmlButtonAdapter, type UseHtmlButtonAdapterProps } from './adapter';
+
+import { useHtmlButtonAdapter } from './adapter';
+
+import type { UseHtmlButtonAdapterProps } from './adapter';
+import type { FieldValues } from 'react-hook-form';
 
 export interface HtmlButtonElementProps<TFieldValues extends FieldValues = FieldValues>
   extends
@@ -57,6 +60,7 @@ function HtmlButtonComponent<TFieldValues extends FieldValues = FieldValues>(
     ref,
   );
 
+  // eslint-disable-next-line react/button-has-type -- the type comes from the props
   return <button {...rest} {...adapter} />;
 }
 

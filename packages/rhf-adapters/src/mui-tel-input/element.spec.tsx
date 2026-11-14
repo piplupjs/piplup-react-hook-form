@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { test, expect, describe } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { FormContainer } from '@piplup/rhf-core';
-import { MuiTelInputElement } from './element';
+import { test, expect, describe } from 'vitest';
 import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
+import { MuiTelInputElement } from './element';
 
 describe('MuiTelInputElement', () => {
   test('renders initial defaultValue phone number', async () => {

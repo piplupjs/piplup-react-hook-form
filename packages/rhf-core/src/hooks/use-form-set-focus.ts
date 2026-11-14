@@ -1,10 +1,7 @@
-import {
-  type Control,
-  type FieldValues,
-  type UseFormSetFocus,
-  useFormContext,
-  get,
-} from 'react-hook-form';
+/* eslint-disable no-underscore-dangle -- react-hook-form's control keeps these fields private */
+import { useFormContext, get } from 'react-hook-form';
+
+import type { Control, FieldValues, UseFormSetFocus } from 'react-hook-form';
 
 /**
  * Defines the properties for the `useFormSetFocus` hook.

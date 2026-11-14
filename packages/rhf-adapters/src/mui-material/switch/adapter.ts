@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { useControllerAdapter, type UseControllerAdapterProps } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues, type PathValue } from 'react-hook-form';
+
+import { useControllerAdapter } from '@piplup/rhf-core';
+
+import type { UseControllerAdapterProps } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues, PathValue } from 'react-hook-form';
 
 export interface UseMuiSwitchAdapterProps<
   TTransformedValue,

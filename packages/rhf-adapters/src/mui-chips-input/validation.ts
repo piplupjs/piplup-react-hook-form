@@ -1,4 +1,4 @@
-import { type MuiChipsInputProps } from 'mui-chips-input';
+import type { MuiChipsInputProps } from 'mui-chips-input';
 
 /**
  * Creates a validation function for chip values.
@@ -18,13 +18,16 @@ export function validateChipValues(
     const length = valuesArray.length;
 
     while (i < length) {
-      const value = valuesArray[i++];
+      const value = valuesArray[i];
+      i += 1;
       if (typeof value !== 'string') {
         continue;
       }
       const validationData = validationFunc(value);
 
-      if (validationData === undefined) continue;
+      if (validationData === undefined) {
+        continue;
+      }
 
       if (typeof validationData === 'object') {
         if (validationData.isError) {

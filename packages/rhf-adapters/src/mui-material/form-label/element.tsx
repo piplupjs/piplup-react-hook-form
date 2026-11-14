@@ -1,7 +1,12 @@
 import * as React from 'react';
-import { FormLabel, type FormLabelProps } from '@mui/material';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiFormLabelAdapterProps, useMuiFormLabelAdapter } from './adapter';
+
+import { FormLabel } from '@mui/material';
+
+import { useMuiFormLabelAdapter } from './adapter';
+
+import type { UseMuiFormLabelAdapterProps } from './adapter';
+import type { FormLabelProps } from '@mui/material';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiFormLabelElementProps<
   TFieldValues extends FieldValues = FieldValues,

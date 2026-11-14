@@ -1,9 +1,12 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, it, expect } from 'vitest';
 import { useFormContext } from 'react-hook-form';
+import { describe, it, expect } from 'vitest';
+
 import { FormContainer } from '../form';
+
 import { useFormReset } from './use-form-reset';
 
 function InputRegister({ name }: { name: string }) {

@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { describe, expect, test } from 'vitest';
-import { userEvent } from 'vitest/browser';
-import { render } from 'vitest-browser-react';
+
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { FormContainer } from '@piplup/rhf-core';
 import dayjs from 'dayjs';
+import { describe, expect, test } from 'vitest';
+import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
 import { MuiXDesktopDatePickerElement } from './element';
 
 describe('MuiXDesktopDatePickerElement', () => {

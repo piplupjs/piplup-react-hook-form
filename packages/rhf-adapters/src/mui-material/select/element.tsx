@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { Select, type SelectProps } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useMuiSelectAdapter, type UseMuiSelectAdapterProps } from './adapter';
+
+import { Select } from '@mui/material';
+
+import { useMuiSelectAdapter } from './adapter';
+
+import type { UseMuiSelectAdapterProps } from './adapter';
+import type { SelectProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiSelectElementProps<
   TTransformedValue,

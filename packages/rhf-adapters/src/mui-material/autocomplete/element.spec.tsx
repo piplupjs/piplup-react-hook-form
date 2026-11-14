@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { test, expect, describe } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { TextField, autocompleteClasses } from '@mui/material';
 import { FormContainer } from '@piplup/rhf-core';
-import { MuiAutocompleteElement } from './element';
+import { test, expect, describe } from 'vitest';
 import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
+import { MuiAutocompleteElement } from './element';
 
 describe('MuiAutocompleteElement', () => {
   test('mounts and allows selecting an option', async () => {
@@ -21,7 +23,7 @@ describe('MuiAutocompleteElement', () => {
     await expect.element(input).toBeInTheDocument();
 
     await userEvent.click(input);
-    const option = await screen.getByRole('option', {
+    const option = screen.getByRole('option', {
       name: 'Banana',
     });
     await userEvent.click(option);
@@ -60,7 +62,7 @@ describe('MuiAutocompleteElement', () => {
 
     await userEvent.click(input);
 
-    const bananaOption = await screen.getByRole('option', {
+    const bananaOption = screen.getByRole('option', {
       name: 'Banana',
     });
 
@@ -93,6 +95,6 @@ describe('MuiAutocompleteElement', () => {
 
     await userEvent.click(submitButton);
 
-    expect(await screen.getByText('Select a fruit')).toBeInTheDocument();
+    expect(screen.getByText('Select a fruit')).toBeInTheDocument();
   });
 });

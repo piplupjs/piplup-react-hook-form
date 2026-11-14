@@ -1,5 +1,7 @@
-import { type PathValue, type FieldPath, type FieldValues } from 'react-hook-form';
-import { useHtmlInputAdapter, type UseHtmlInputAdapterProps } from '../../html/input/adapter';
+import { useHtmlInputAdapter } from '../../html/input/adapter';
+
+import type { UseHtmlInputAdapterProps } from '../../html/input/adapter';
+import type { PathValue, FieldPath, FieldValues } from 'react-hook-form';
 
 export interface UseNumberFormatBaseAdapterProps<
   TTransformedValue,

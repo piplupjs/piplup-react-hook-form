@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { NumericFormat, type NumericFormatProps } from 'react-number-format';
-import { type UseNumericFormatAdapterProps, useNumericFormatAdapter } from './adapter';
+
+import { NumericFormat } from 'react-number-format';
+
+import { useNumericFormatAdapter } from './adapter';
+
+import type { UseNumericFormatAdapterProps } from './adapter';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
+import type { NumericFormatProps } from 'react-number-format';
 
 export interface NumericFormatElementProps<
   TTransformedValue extends null | number | string | undefined,

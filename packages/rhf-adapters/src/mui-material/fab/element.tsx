@@ -1,7 +1,12 @@
 import * as React from 'react';
-import { Fab, type FabProps } from '@mui/material';
-import { type FieldValues } from 'react-hook-form';
-import { useMuiFabAdapter, type UseMuiFabAdapterProps } from './adapter';
+
+import { Fab } from '@mui/material';
+
+import { useMuiFabAdapter } from './adapter';
+
+import type { UseMuiFabAdapterProps } from './adapter';
+import type { FabProps } from '@mui/material';
+import type { FieldValues } from 'react-hook-form';
 
 export interface MuiFabElementProps<TFieldValues extends FieldValues = FieldValues>
   extends

@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { Checkbox, type CheckboxProps } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useMuiCheckboxAdapter, type UseMuiCheckboxAdapterProps } from './adapter';
+
+import { Checkbox } from '@mui/material';
+
+import { useMuiCheckboxAdapter } from './adapter';
+
+import type { UseMuiCheckboxAdapterProps } from './adapter';
+import type { CheckboxProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiCheckboxElementProps<
   TTransformedValue,

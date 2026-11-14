@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { useControllerAdapter, type UseControllerAdapterProps } from '@piplup/rhf-core';
+
+import { useControllerAdapter } from '@piplup/rhf-core';
 import { forkRef } from '@piplup/utils';
-import { type MuiOtpInputProps } from 'mui-one-time-password-input';
-import { type PathValue, type FieldPath, type FieldValues } from 'react-hook-form';
+
+import type { UseControllerAdapterProps } from '@piplup/rhf-core';
+import type { MuiOtpInputProps } from 'mui-one-time-password-input';
+import type { PathValue, FieldPath, FieldValues } from 'react-hook-form';
 
 export interface UseMuiOtpInputAdapterProps<
   TTransformedValue,
