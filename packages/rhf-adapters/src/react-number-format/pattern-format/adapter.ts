@@ -1,8 +1,7 @@
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import {
-  useNumberFormatBaseAdapter,
-  type UseNumberFormatBaseAdapterProps,
-} from '../number-format-base/adapter';
+import { useNumberFormatBaseAdapter } from '../number-format-base/adapter';
+
+import type { UseNumberFormatBaseAdapterProps } from '../number-format-base/adapter';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface UsePatternFormatAdapterProps<
   TTransformedValue,

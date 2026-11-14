@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { type Transform } from '@piplup/rhf-core';
-import { MuiColorInput, type MuiColorInputValue, type MuiColorInputProps } from 'mui-color-input';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiColorInputAdapterProps, useMuiColorInputAdapter } from './adapter';
+
+import { MuiColorInput } from 'mui-color-input';
+
+import { useMuiColorInputAdapter } from './adapter';
+
+import type { UseMuiColorInputAdapterProps } from './adapter';
+import type { Transform } from '@piplup/rhf-core';
+import type { MuiColorInputValue, MuiColorInputProps } from 'mui-color-input';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiColorInputElementProps<
   TTransformedValue extends MuiColorInputValue,

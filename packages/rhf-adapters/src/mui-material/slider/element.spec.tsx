@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { describe, test, expect, vi } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { FormContainer } from '@piplup/rhf-core';
-import { MuiSliderElement } from './element';
+import { describe, test, expect, vi } from 'vitest';
 import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
+import { MuiSliderElement } from './element';
 
 describe('MuiSliderElement', () => {
   test('mounts and allows keyboard changes', async () => {
@@ -38,7 +40,7 @@ describe('MuiSliderElement', () => {
 
     const screen = await render(
       <FormContainer>
-        <MuiSliderElement name="volume" onChange={(e) => onChange(e)} />
+        <MuiSliderElement name="volume" onChange={(event) => onChange(event)} />
       </FormContainer>,
     );
 

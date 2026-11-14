@@ -1,13 +1,10 @@
 import * as React from 'react';
-import {
-  type Validator,
-  type PickersTimezone,
-  type PickerValidDate,
-  usePickerAdapter,
-} from '@mui/x-date-pickers';
 
+import { usePickerAdapter } from '@mui/x-date-pickers';
 import { getMessage } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues, type RegisterOptions } from 'react-hook-form';
+
+import type { Validator, PickersTimezone, PickerValidDate } from '@mui/x-date-pickers';
+import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form';
 
 /**
  * Customizable rules messages.

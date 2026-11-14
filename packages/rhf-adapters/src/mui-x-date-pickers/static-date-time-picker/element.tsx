@@ -1,15 +1,13 @@
 import * as React from 'react';
-import {
-  StaticDateTimePicker,
-  type StaticDateTimePickerProps,
-  type PickerValidDate,
-} from '@mui/x-date-pickers';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import {
-  type UseMuiXStaticDateTimePickerAdapterProps,
-  useMuiXStaticDateTimePickerAdapter,
-} from './adapter';
+
+import { StaticDateTimePicker } from '@mui/x-date-pickers';
+
+import { useMuiXStaticDateTimePickerAdapter } from './adapter';
+
+import type { UseMuiXStaticDateTimePickerAdapterProps } from './adapter';
+import type { StaticDateTimePickerProps, PickerValidDate } from '@mui/x-date-pickers';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiXStaticDateTimePickerElementProps<
   TTransformedValue extends PickerValidDate,

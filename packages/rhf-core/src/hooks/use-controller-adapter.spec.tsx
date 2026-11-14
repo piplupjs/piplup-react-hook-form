@@ -1,32 +1,37 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
+
 import { FormContainer } from '../form';
-import { useControllerAdapter, type UseControllerAdapterProps } from './use-controller-adapter';
+
+import { useControllerAdapter } from './use-controller-adapter';
+
+import type { UseControllerAdapterProps } from './use-controller-adapter';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 function TestInput<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >(props: UseControllerAdapterProps<string, TFieldValues, TName>) {
   const adapter = useControllerAdapter<string, TFieldValues, TName>(props);
-  const { name, value, onChange, onBlur, ref, disabled, required, className, style, title } =
+  const { className, disabled, name, onBlur, onChange, ref, required, style, title, value } =
     adapter;
 
   return (
     <input
-      data-cy="field"
-      name={name}
-      value={value ?? ''}
-      onChange={onChange}
-      onBlur={onBlur}
-      ref={ref as any}
-      disabled={disabled}
-      required={required}
       className={className}
+      data-cy="field"
+      disabled={disabled}
+      name={name}
+      onBlur={onBlur}
+      onChange={onChange}
+      ref={ref as any}
+      required={required}
       style={style}
       title={title}
+      value={value ?? ''}
     />
   );
 }
@@ -54,7 +59,7 @@ describe('useControllerAdapter (integration)', () => {
     const onError = vi.fn();
 
     const { container } = render(
-      <FormContainer onError={(e) => onError(e)} onSubmit={(d) => onSubmit(d)}>
+      <FormContainer onError={(error) => onError(error)} onSubmit={(d) => onSubmit(d)}>
         <TestInput name="requiredField" rules={{ required: true }} />
         <button type="submit">Submit</button>
       </FormContainer>,

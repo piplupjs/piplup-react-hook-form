@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { TextField, type TextFieldProps } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useMuiTextFieldAdapter, type UseMuiTextFieldAdapterProps } from './adapter';
+
+import { TextField } from '@mui/material';
+
+import { useMuiTextFieldAdapter } from './adapter';
+
+import type { UseMuiTextFieldAdapterProps } from './adapter';
+import type { TextFieldProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiTextFieldElementProps<
   TTransformedValue,

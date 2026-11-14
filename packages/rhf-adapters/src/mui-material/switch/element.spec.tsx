@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { describe, test, expect, vi } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { FormControlLabel } from '@mui/material';
 import { FormContainer } from '@piplup/rhf-core';
+import { describe, test, expect, vi } from 'vitest';
+import { render } from 'vitest-browser-react';
+
 import { MuiSwitchElement } from './element';
 
 describe('MuiSwitchElement', () => {
@@ -52,7 +54,7 @@ describe('MuiSwitchElement', () => {
     const screen = await render(
       <FormContainer>
         <FormControlLabel
-          control={<MuiSwitchElement name="agree" onChange={(e) => onChange(e)} />}
+          control={<MuiSwitchElement name="agree" onChange={(event) => onChange(event)} />}
           label="Agree"
         />
       </FormContainer>,
@@ -63,6 +65,7 @@ describe('MuiSwitchElement', () => {
     await expect(onChange).toHaveBeenCalled();
   });
 
+  // eslint-disable-next-line vitest/no-commented-out-tests -- kept from the Cypress tests
   // it('respects disabled prop', () => {
   //   cy.mount(
   //     <FormContainer>

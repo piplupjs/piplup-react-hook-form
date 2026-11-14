@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import * as React from 'react';
-import { render } from '@testing-library/react';
+
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, it, expect } from 'vitest';
 import { useFormContext } from 'react-hook-form';
+import { describe, it, expect } from 'vitest';
+
 import { FormContainer } from '../form';
+
 import { useFormStateAdapter } from './use-form-state-adapter';
 
 function Consumer(props: { helperText?: React.ReactNode; name?: string }) {
@@ -26,13 +29,13 @@ function Input({ name }: { name: string }) {
 
 describe('useFormStateAdapter', () => {
   it('renders helperText when provided and no errors', async () => {
-    const { findByText } = render(
+    render(
       <FormContainer onSubmit={() => {}}>
         <Consumer helperText="help" />
       </FormContainer>,
     );
 
-    await findByText(/help/);
+    expect(await screen.findByText(/help/)).toBeTruthy();
   });
 
   it('reflects form errors and composes helper text', async () => {

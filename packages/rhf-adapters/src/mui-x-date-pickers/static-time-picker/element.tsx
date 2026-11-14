@@ -1,16 +1,13 @@
 import * as React from 'react';
-import {
-  StaticTimePicker,
-  type StaticTimePickerProps,
-  type TimePickerProps,
-  type PickerValidDate,
-} from '@mui/x-date-pickers';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import {
-  type UseMuiXStaticTimePickerAdapterProps,
-  useMuiXStaticTimePickerAdapter,
-} from './adapter';
+
+import { StaticTimePicker } from '@mui/x-date-pickers';
+
+import { useMuiXStaticTimePickerAdapter } from './adapter';
+
+import type { UseMuiXStaticTimePickerAdapterProps } from './adapter';
+import type { StaticTimePickerProps, TimePickerProps, PickerValidDate } from '@mui/x-date-pickers';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export type MuiXStaticTimePickerElementProps<
   TTransformedValue extends PickerValidDate,

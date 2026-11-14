@@ -1,7 +1,9 @@
 import * as React from 'react';
+
+import { useForm, useWatch } from 'react-hook-form';
 import { test, expect, vi, describe } from 'vitest';
 import { render } from 'vitest-browser-react';
-import { useForm, useWatch } from 'react-hook-form';
+
 import { HtmlInputElement } from './element';
 
 describe('HtmlInputElement', () => {
@@ -24,10 +26,10 @@ describe('HtmlInputElement', () => {
         >
           <HtmlInputElement
             control={control}
+            data-testid="input"
             name="test"
             placeholder="Enter text"
             type="text"
-            data-testid="input"
           />
           <p data-testid="value-display">Value: {value}</p>
         </form>
@@ -85,8 +87,8 @@ describe('HtmlInputElement', () => {
       return (
         <div>
           <HtmlInputElement
-            data-testid="input"
             control={control}
+            data-testid="input"
             name="text"
             type="text"
             disabled
@@ -107,7 +109,7 @@ describe('HtmlInputElement', () => {
 
       return (
         <div>
-          <HtmlInputElement control={control} name="text" type="text" data-testid="input" />
+          <HtmlInputElement control={control} data-testid="input" name="text" type="text" />
         </div>
       );
     };
@@ -128,7 +130,7 @@ describe('HtmlInputElement', () => {
 
       return (
         <div>
-          <HtmlInputElement control={control} name="text" type="text" data-testid="input" />
+          <HtmlInputElement control={control} data-testid="input" name="text" type="text" />
         </div>
       );
     };
@@ -184,9 +186,9 @@ describe('HtmlInputElement', () => {
               },
             }}
             control={control}
+            data-testid="input"
             name="text"
             type="text"
-            data-testid="input"
           />
           <p data-testid="value-display">Value: {value}</p>
         </div>

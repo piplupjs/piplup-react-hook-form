@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import * as React from 'react';
-import { describe, test, expect, vi } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { FormContainer } from '@piplup/rhf-core';
 import { useForm } from 'react-hook-form';
-import { MuiIconButtonElement } from './element';
-import { HtmlInputElement } from '../../html';
+import { describe, test, expect, vi } from 'vitest';
 import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
+import { HtmlInputElement } from '../../html';
+
+import { MuiIconButtonElement } from './element';
 
 describe('MuiIconButtonElement', () => {
   test('calls provided onClick and does not reset when type is button', async () => {
@@ -14,7 +17,7 @@ describe('MuiIconButtonElement', () => {
 
     const screen = await render(
       <FormContainer>
-        <MuiIconButtonElement onClick={(e) => onClick(e)} type="button">
+        <MuiIconButtonElement onClick={(event) => onClick(event)} type="button">
           Icon
         </MuiIconButtonElement>
       </FormContainer>,
@@ -33,7 +36,7 @@ describe('MuiIconButtonElement', () => {
       });
       return (
         <form onSubmit={handleSubmit(() => {})} noValidate>
-          <HtmlInputElement data-testid="foo" placeholder="foo" name="foo" control={control} />
+          <HtmlInputElement control={control} data-testid="foo" name="foo" placeholder="foo" />
           <MuiIconButtonElement control={control} type="reset">
             Reset
           </MuiIconButtonElement>

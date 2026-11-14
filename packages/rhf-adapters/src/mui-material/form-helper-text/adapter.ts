@@ -1,9 +1,9 @@
 import type * as React from 'react';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import {
-  useHtmlFormHelperTextAdapter,
-  type UseHtmlFormHelperTextProps,
-} from '../../html/form-helper-text/adapter';
+
+import { useHtmlFormHelperTextAdapter } from '../../html/form-helper-text/adapter';
+
+import type { UseHtmlFormHelperTextProps } from '../../html/form-helper-text/adapter';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export type UseMuiFormHelperTextProps<
   TFieldValues extends FieldValues = FieldValues,

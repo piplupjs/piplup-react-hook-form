@@ -1,8 +1,10 @@
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
 import { test, expect, describe, vi } from 'vitest';
 import { userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
+
 import { MuiFilledInputElement } from './element';
 
 describe('MuiFilledInputElement', () => {
@@ -46,7 +48,7 @@ describe('MuiFilledInputElement', () => {
 
     const screen = await render(
       <FormContainer>
-        <MuiFilledInputElement name="first" onChange={(e) => onChange(e)} />
+        <MuiFilledInputElement name="first" onChange={(event) => onChange(event)} />
       </FormContainer>,
     );
 

@@ -1,9 +1,11 @@
 import * as React from 'react';
+
+import { formHelperTextClasses } from '@mui/material';
+import { FormContainer } from '@piplup/rhf-core';
 import { describe, test, expect, vi } from 'vitest';
 import { userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
-import { formHelperTextClasses } from '@mui/material';
+
 import { MuiTextFieldElement } from './element';
 
 describe('MuiTextFieldElement', () => {
@@ -50,7 +52,7 @@ describe('MuiTextFieldElement', () => {
 
     const screen = await render(
       <FormContainer>
-        <MuiTextFieldElement name="first" onChange={(e) => onChange(e)} />
+        <MuiTextFieldElement name="first" onChange={(event) => onChange(event)} />
       </FormContainer>,
     );
 

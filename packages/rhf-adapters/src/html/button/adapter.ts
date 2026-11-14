@@ -1,7 +1,10 @@
 import type * as React from 'react';
-import { useFormStateAdapter, type UseFormStateAdapterProps, useFormReset } from '@piplup/rhf-core';
+
+import { useFormStateAdapter, useFormReset } from '@piplup/rhf-core';
 import { useEventCallback } from '@piplup/utils';
-import { type FieldValues } from 'react-hook-form';
+
+import type { UseFormStateAdapterProps } from '@piplup/rhf-core';
+import type { FieldValues } from 'react-hook-form';
 
 export interface UseHtmlButtonAdapterProps<
   TFieldValues extends FieldValues = FieldValues,

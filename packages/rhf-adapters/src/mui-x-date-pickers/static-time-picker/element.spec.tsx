@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { describe, test, expect } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { FormContainer } from '@piplup/rhf-core';
 import dayjs from 'dayjs';
-import { MuiXStaticTimePickerElement } from './element';
+import { describe, test, expect } from 'vitest';
 import { mouse } from 'vitest-browser-commands/playwright';
+import { render } from 'vitest-browser-react';
+
+import { MuiXStaticTimePickerElement } from './element';
 
 describe('MuiXStaticTimePickerElement', () => {
   test('renders default time from defaultValues', async () => {

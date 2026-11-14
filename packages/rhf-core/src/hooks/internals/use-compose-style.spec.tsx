@@ -1,10 +1,11 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import {
-  useUnstableComposeStyle as useComposeStyle,
-  type UseComposeStyleProps,
-} from './use-compose-style';
+
+import { useUnstableComposeStyle as useComposeStyle } from './use-compose-style';
+
+import type { UseComposeStyleProps } from './use-compose-style';
 
 function Comp(props: UseComposeStyleProps) {
   const s = useComposeStyle(props);

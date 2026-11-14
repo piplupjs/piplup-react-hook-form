@@ -1,4 +1,4 @@
-import { type FieldPath, type FieldValues, type UseControllerProps } from 'react-hook-form';
+import type { FieldPath, FieldValues, UseControllerProps } from 'react-hook-form';
 
 /**
  * Type definition for customizable rule messages.

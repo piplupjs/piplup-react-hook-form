@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {
-  Autocomplete,
-  type AutocompleteValue,
-  type AutocompleteProps,
-  type ChipTypeMap,
-} from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useMuiAutocompleteAdapter, type UseMuiAutocompleteProps } from './adapter';
+
+import { Autocomplete } from '@mui/material';
+
+import { useMuiAutocompleteAdapter } from './adapter';
+
+import type { UseMuiAutocompleteProps } from './adapter';
+import type { AutocompleteValue, AutocompleteProps, ChipTypeMap } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiAutocompleteElementProps<
   TTransformedValue,

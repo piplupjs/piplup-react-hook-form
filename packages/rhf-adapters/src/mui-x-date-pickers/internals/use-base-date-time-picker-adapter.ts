@@ -1,20 +1,14 @@
 import type * as React from 'react';
-import {
-  usePickerAdapter,
-  validateDateTime,
-  type ValidateDateTimeProps,
-  type DateTimeValidationError,
-} from '@mui/x-date-pickers';
-import {
-  applyDefaultDate,
-  type PickerValidValue,
-  useDefaultDates,
-} from '@mui/x-date-pickers/internals';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import {
-  useUnstableBasePickerAdapter as useBasePickerAdapter,
-  type UseBasePickerAdapterProps,
-} from '../internals';
+
+import { usePickerAdapter, validateDateTime } from '@mui/x-date-pickers';
+import { applyDefaultDate, useDefaultDates } from '@mui/x-date-pickers/internals';
+
+import { useUnstableBasePickerAdapter as useBasePickerAdapter } from '../internals';
+
+import type { UseBasePickerAdapterProps } from '../internals';
+import type { ValidateDateTimeProps, DateTimeValidationError } from '@mui/x-date-pickers';
+import type { PickerValidValue } from '@mui/x-date-pickers/internals';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 type ValidationProps = Omit<ValidateDateTimeProps, 'disableFuture' | 'disablePast'> &
   Partial<Pick<ValidateDateTimeProps, 'disableFuture' | 'disablePast'>>;

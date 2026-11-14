@@ -1,12 +1,12 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { type FieldValues } from 'react-hook-form';
-import {
-  getMessage,
-  useUnstableComposeRules as useComposeRules,
-  type UseComposeRulesProps,
-} from './use-compose-rules';
+
+import { getMessage, useUnstableComposeRules as useComposeRules } from './use-compose-rules';
+
+import type { UseComposeRulesProps } from './use-compose-rules';
+import type { FieldValues } from 'react-hook-form';
 
 function Comp(props: UseComposeRulesProps<FieldValues>) {
   const r = useComposeRules(props);
@@ -32,14 +32,14 @@ describe('useComposeRules', () => {
 
   it('does not modify the rules object passed in', () => {
     const shared = { validate: () => true };
-    render(<Comp maxLength={10} required rules={shared} />);
+    render(<Comp maxLength={10} rules={shared} required />);
     render(<Comp rules={shared} />);
     expect(Object.keys(shared)).toEqual(['validate']);
   });
 
   it('does not leak composed rules between fields sharing a rules object', () => {
     const shared = {};
-    render(<Comp required rules={shared} />);
+    render(<Comp rules={shared} required />);
     const { container } = render(<Comp rules={shared} />);
     expect(container.querySelector('[data-cy=r]')?.textContent).toBe('{}');
   });
@@ -61,11 +61,11 @@ describe('useComposeRules', () => {
   it('passes rule values to message functions as separate arguments', () => {
     const { container } = render(
       <Comp
-        max={8}
         messages={{
           max: (max) => `max:${typeof max}:${max}`,
           pattern: (pattern, title) => `pattern:${pattern.source}:${title}`,
         }}
+        max={8}
         pattern="^a"
         title="Starts with a"
       />,

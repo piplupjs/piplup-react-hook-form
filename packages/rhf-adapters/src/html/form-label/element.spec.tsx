@@ -1,14 +1,16 @@
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
 import { test, expect, describe } from 'vitest';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
+
 import { HtmlFormLabelElement } from './element';
 
 describe('HtmlFormLabelElement', () => {
   test('renders children and forwards htmlFor', async () => {
     const screen = await render(
       <FormContainer>
-        <HtmlFormLabelElement name="name" htmlFor="input-id">
+        <HtmlFormLabelElement htmlFor="input-id" name="name">
           Full Name
         </HtmlFormLabelElement>
       </FormContainer>,
@@ -22,7 +24,7 @@ describe('HtmlFormLabelElement', () => {
   test('forwards className to the label', async () => {
     const screen = await render(
       <FormContainer>
-        <HtmlFormLabelElement name="name" className="my-label">
+        <HtmlFormLabelElement className="my-label" name="name">
           Label
         </HtmlFormLabelElement>
       </FormContainer>,
@@ -46,7 +48,7 @@ describe('HtmlFormLabelElement', () => {
       <FormContainer>
         <div>
           <input data-testid="linked-input" id="linked" />
-          <HtmlFormLabelElement name="name" htmlFor="linked">
+          <HtmlFormLabelElement htmlFor="linked" name="name">
             Linked
           </HtmlFormLabelElement>
         </div>

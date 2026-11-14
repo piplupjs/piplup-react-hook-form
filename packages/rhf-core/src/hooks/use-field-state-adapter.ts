@@ -1,16 +1,21 @@
 import type * as React from 'react';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
+
 import {
-  type UseComposeClassNameProps,
   useUnstableComposeClassName as useComposeClassName,
-  type UseComposeHelperTextProps,
   useUnstableComposeHelperText as useComposeHelperText,
-  type UseComposeModifierStateProps,
   useUnstableComposeModifierState as useComposeModifierState,
-  type UseComposeStyleProps,
   useUnstableComposeStyle as useComposeStyle,
 } from './internals';
-import { useFieldState, type UseFieldStateProps } from './use-field-state';
+import { useFieldState } from './use-field-state';
+
+import type {
+  UseComposeClassNameProps,
+  UseComposeHelperTextProps,
+  UseComposeModifierStateProps,
+  UseComposeStyleProps,
+} from './internals';
+import type { UseFieldStateProps } from './use-field-state';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 /**
  * Type for the props of the `useFieldStateAdapter`.

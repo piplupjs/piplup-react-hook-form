@@ -1,6 +1,9 @@
-import type React from 'react';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useHtmlInputAdapter, type UseHtmlInputAdapterProps } from '../input';
+import type * as React from 'react';
+
+import { useHtmlInputAdapter } from '../input';
+
+import type { UseHtmlInputAdapterProps } from '../input';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface UseHtmlTextareaAdapterProps<
   TTransformedValue,

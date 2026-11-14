@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { test, expect, describe, vi } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { userEvent } from 'vitest/browser';
+
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { FormContainer } from '@piplup/rhf-core';
+import { test, expect, describe, vi } from 'vitest';
+import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
 import { MuiCheckboxElement } from './element';
 
 describe('MuiCheckboxElement', () => {
@@ -51,7 +53,7 @@ describe('MuiCheckboxElement', () => {
     const screen = await render(
       <FormContainer>
         <FormControlLabel
-          control={<MuiCheckboxElement name="agree" onChange={(e) => onChange(e)} value />}
+          control={<MuiCheckboxElement name="agree" onChange={(event) => onChange(event)} value />}
           label="Agree"
         />
       </FormContainer>,

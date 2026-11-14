@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { type Transform } from '@piplup/rhf-core';
+
 import { MuiTelInput } from 'mui-tel-input';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiTelInputAdapterProps, useMuiTelInputAdapter } from './adapter';
+
+import { useMuiTelInputAdapter } from './adapter';
+
+import type { UseMuiTelInputAdapterProps } from './adapter';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 type MuiTelInputProps = React.ComponentProps<typeof MuiTelInput>;
 

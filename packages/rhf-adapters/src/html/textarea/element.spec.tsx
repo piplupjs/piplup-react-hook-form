@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
 import { test, expect, vi, describe } from 'vitest';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
+
 import { HtmlTextareaElement } from './element';
 
 describe('HtmlTextareaElement', () => {
@@ -60,7 +62,7 @@ describe('HtmlTextareaElement', () => {
     const onError = vi.fn();
 
     const screen = await render(
-      <FormContainer onError={(e) => onError(e)} onSubmit={(d) => onSubmit(d)}>
+      <FormContainer onError={(error) => onError(error)} onSubmit={(d) => onSubmit(d)}>
         <HtmlTextareaElement data-testid="desc" name="desc" rules={{ required: true }} />
         <button data-testid="submit" type="submit">
           Submit
@@ -81,7 +83,7 @@ describe('HtmlTextareaElement', () => {
     const onError = vi.fn();
 
     const screen = await render(
-      <FormContainer onError={(e) => onError(e)} onSubmit={() => {}}>
+      <FormContainer onError={(error) => onError(error)} onSubmit={() => {}}>
         <HtmlTextareaElement data-testid="short" name="short" rules={{ minLength: 5 }} />
         <button data-testid="submit" type="submit">
           Submit

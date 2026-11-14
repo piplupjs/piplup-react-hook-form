@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useHtmlInputAdapter, type UseHtmlInputAdapterProps } from './adapter';
+
+import { useHtmlInputAdapter } from './adapter';
+
+import type { UseHtmlInputAdapterProps } from './adapter';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface HtmlInputElementProps<
   TTransformedValue extends number | readonly string[] | string | undefined,

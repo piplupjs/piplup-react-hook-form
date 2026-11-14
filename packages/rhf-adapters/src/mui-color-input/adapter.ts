@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { useControllerAdapter, type UseControllerAdapterProps } from '@piplup/rhf-core';
-import { type PathValue, type FieldPath, type FieldValues } from 'react-hook-form';
+
+import { useControllerAdapter } from '@piplup/rhf-core';
+
+import type { UseControllerAdapterProps } from '@piplup/rhf-core';
+import type { PathValue, FieldPath, FieldValues } from 'react-hook-form';
 
 export interface UseMuiColorInputAdapterProps<
   TTransformedValue,

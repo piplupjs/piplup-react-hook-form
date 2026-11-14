@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { type Transform } from '@piplup/rhf-core';
-import { MuiOtpInput, type MuiOtpInputProps } from 'mui-one-time-password-input';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiOtpInputAdapterProps, useMuiOtpInputAdapter } from './adapter';
+
+import { MuiOtpInput } from 'mui-one-time-password-input';
+
+import { useMuiOtpInputAdapter } from './adapter';
+
+import type { UseMuiOtpInputAdapterProps } from './adapter';
+import type { Transform } from '@piplup/rhf-core';
+import type { MuiOtpInputProps } from 'mui-one-time-password-input';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiOtpInputElementProps<
   TTransformedValue extends string,

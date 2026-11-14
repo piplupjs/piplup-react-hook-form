@@ -1,11 +1,8 @@
 import * as React from 'react';
+
 import { useEventCallback } from '@piplup/utils';
-import {
-  type FieldPath,
-  type FieldValues,
-  type PathValue,
-  type UseControllerReturn,
-} from 'react-hook-form';
+
+import type { FieldPath, FieldValues, PathValue, UseControllerReturn } from 'react-hook-form';
 
 export type Transform<
   OnChange extends

@@ -1,7 +1,12 @@
 import * as React from 'react';
-import { IconButton, type IconButtonProps } from '@mui/material';
-import { type FieldValues } from 'react-hook-form';
-import { type UseMuiIconButtonAdapterProps, useMuiIconButtonAdapter } from './adapter';
+
+import { IconButton } from '@mui/material';
+
+import { useMuiIconButtonAdapter } from './adapter';
+
+import type { UseMuiIconButtonAdapterProps } from './adapter';
+import type { IconButtonProps } from '@mui/material';
+import type { FieldValues } from 'react-hook-form';
 
 export interface MuiIconButtonElementProps<TFieldValues extends FieldValues = FieldValues>
   extends

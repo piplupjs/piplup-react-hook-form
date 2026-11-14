@@ -1,11 +1,14 @@
-import { describe, test, expect, vi } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { userEvent } from 'vitest/browser';
+import * as React from 'react';
+
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { FormContainer } from '@piplup/rhf-core';
 import dayjs from 'dayjs';
 import { useFormState } from 'react-hook-form';
+import { describe, test, expect, vi } from 'vitest';
+import { userEvent } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
 import { MuiXTimePickerElement } from './element';
 
 function TouchedState({ name }: { name: string }) {

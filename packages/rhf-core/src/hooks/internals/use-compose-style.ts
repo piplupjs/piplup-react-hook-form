@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { type UseComposeModifierStateResult } from './use-compose-modifier-state';
+
+import type { UseComposeModifierStateResult } from './use-compose-modifier-state';
 
 /**
  * Defines the properties for the `useComposeStyle` hook.

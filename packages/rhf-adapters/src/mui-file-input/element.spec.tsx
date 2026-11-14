@@ -1,7 +1,9 @@
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
 import { test, expect, describe } from 'vitest';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
+
 import { MuiFileInputElement } from './element';
 
 describe('MuiFileInputElement', () => {
@@ -9,12 +11,12 @@ describe('MuiFileInputElement', () => {
     const screen = await render(
       <FormContainer onSubmit={() => {}}>
         <MuiFileInputElement
-          name="file"
           slotProps={{
             htmlInput: {
               'data-testid': 'file',
             },
           }}
+          name="file"
         />
       </FormContainer>,
     );
@@ -36,13 +38,13 @@ describe('MuiFileInputElement', () => {
     const screen = await render(
       <FormContainer onSubmit={() => {}}>
         <MuiFileInputElement
-          name="files"
-          multiple
           slotProps={{
             htmlInput: {
               'data-testid': 'file',
             },
           }}
+          name="files"
+          multiple
         />
       </FormContainer>,
     );

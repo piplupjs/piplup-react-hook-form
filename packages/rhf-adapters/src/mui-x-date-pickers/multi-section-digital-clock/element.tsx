@@ -1,15 +1,13 @@
 import * as React from 'react';
-import {
-  MultiSectionDigitalClock,
-  type PickerValidDate,
-  type MultiSectionDigitalClockProps,
-} from '@mui/x-date-pickers';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import {
-  type UseMuiXMultiSectionDigitalClockAdapterProps,
-  useMuiXMultiSectionDigitalClockAdapter,
-} from './adapter';
+
+import { MultiSectionDigitalClock } from '@mui/x-date-pickers';
+
+import { useMuiXMultiSectionDigitalClockAdapter } from './adapter';
+
+import type { UseMuiXMultiSectionDigitalClockAdapterProps } from './adapter';
+import type { PickerValidDate, MultiSectionDigitalClockProps } from '@mui/x-date-pickers';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export type MuiXMultiSectionDigitalClockElementProps<
   TTransformedValue extends PickerValidDate,

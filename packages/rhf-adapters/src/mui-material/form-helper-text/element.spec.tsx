@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { describe, expect, test } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { FormContainer } from '@piplup/rhf-core';
 import { useForm } from 'react-hook-form';
+import { describe, expect, test } from 'vitest';
+import { render } from 'vitest-browser-react';
+
 import { MuiFormHelperTextElement } from './element';
 
 describe('MuiFormHelperTextElement', () => {
@@ -41,8 +43,8 @@ describe('MuiFormHelperTextElement', () => {
         <form onSubmit={handleSubmit(() => {})} noValidate>
           <input data-cy="name" {...register('name', { required: true })} />
           <MuiFormHelperTextElement
-            data-testid="helperText"
             control={control}
+            data-testid="helperText"
             name="name"
             renderOnError
           >

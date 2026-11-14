@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { type SliderProps, Slider } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiSliderAdapterProps, useMuiSliderAdapter } from './adapter';
+
+import { Slider } from '@mui/material';
+
+import { useMuiSliderAdapter } from './adapter';
+
+import type { UseMuiSliderAdapterProps } from './adapter';
+import type { SliderProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiSliderElementProps<
   TTransformedValue extends number | number[] = number | number[],

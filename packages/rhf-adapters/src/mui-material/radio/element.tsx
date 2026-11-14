@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { Radio, type RadioProps } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useMuiRadioAdapter, type UseMuiRadioAdapterProps } from './adapter';
+
+import { Radio } from '@mui/material';
+
+import { useMuiRadioAdapter } from './adapter';
+
+import type { UseMuiRadioAdapterProps } from './adapter';
+import type { RadioProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiRadioElementProps<
   TTransformedValue,

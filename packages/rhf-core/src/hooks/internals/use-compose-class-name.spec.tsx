@@ -1,10 +1,11 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import { describe, it, expect, afterEach } from 'vitest';
-import {
-  useUnstableComposeClassName as useComposeClassName,
-  type UseComposeClassNameProps,
-} from './use-compose-class-name';
+
+import { useUnstableComposeClassName as useComposeClassName } from './use-compose-class-name';
+
+import type { UseComposeClassNameProps } from './use-compose-class-name';
 
 afterEach(() => {
   // cleanup if needed

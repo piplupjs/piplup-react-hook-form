@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import * as React from 'react';
+
+import { FormContainer } from '@piplup/rhf-core';
+import { useForm } from 'react-hook-form';
 import { test, expect, describe, vi } from 'vitest';
 import { userEvent } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { FormContainer } from '@piplup/rhf-core';
-import { useForm } from 'react-hook-form';
-import { MuiButtonElement } from './element';
+
 import { HtmlInputElement } from '../../html';
+
+import { MuiButtonElement } from './element';
 
 describe('MuiButtonElement', () => {
   test('calls provided onClick and does not reset when type is button', async () => {
@@ -14,7 +17,7 @@ describe('MuiButtonElement', () => {
 
     const screen = await render(
       <FormContainer>
-        <MuiButtonElement onClick={(e) => onClick(e)} type="button">
+        <MuiButtonElement onClick={(event) => onClick(event)} type="button">
           Click
         </MuiButtonElement>
       </FormContainer>,
@@ -32,7 +35,7 @@ describe('MuiButtonElement', () => {
       });
       return (
         <form onSubmit={handleSubmit(() => {})} noValidate>
-          <HtmlInputElement placeholder="foo" control={control} name="foo" />
+          <HtmlInputElement control={control} name="foo" placeholder="foo" />
           <MuiButtonElement control={control} type="reset">
             Reset
           </MuiButtonElement>

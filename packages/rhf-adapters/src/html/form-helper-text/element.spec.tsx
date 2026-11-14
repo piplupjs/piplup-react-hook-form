@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import * as React from 'react';
-import { test, expect, describe } from 'vitest';
-import { render } from 'vitest-browser-react';
+
 import { FormContainer } from '@piplup/rhf-core';
 import { useForm } from 'react-hook-form';
-import { HtmlFormHelperTextElement } from './element';
+import { test, expect, describe } from 'vitest';
+import { render } from 'vitest-browser-react';
+
 import { HtmlInputElement } from '../input';
+
+import { HtmlFormHelperTextElement } from './element';
 
 describe('HtmlFormHelperTextElement', () => {
   test('renders children as helper text when no error', async () => {
@@ -21,7 +24,7 @@ describe('HtmlFormHelperTextElement', () => {
   test('does not render when renderOnError is true and there is no error', async () => {
     const screen = await render(
       <FormContainer>
-        <HtmlFormHelperTextElement name="missing" renderOnError data-testid="helperText">
+        <HtmlFormHelperTextElement data-testid="helperText" name="missing" renderOnError>
           Should not show
         </HtmlFormHelperTextElement>
       </FormContainer>,
@@ -38,16 +41,16 @@ describe('HtmlFormHelperTextElement', () => {
       return (
         <form onSubmit={handleSubmit(() => {})} noValidate>
           <HtmlInputElement
-            control={control}
-            name="name"
-            required
             messages={{
               required: 'This field is required',
             }}
+            control={control}
+            name="name"
+            required
           />
           <HtmlFormHelperTextElement
-            data-testid="helperText"
             control={control}
+            data-testid="helperText"
             name="name"
             renderOnError
           />
@@ -68,7 +71,7 @@ describe('HtmlFormHelperTextElement', () => {
       });
       return (
         <form onSubmit={methods.handleSubmit(() => {})} noValidate>
-          <HtmlInputElement data-testid="name" control={methods.control} name="name" required />
+          <HtmlInputElement control={methods.control} data-testid="name" name="name" required />
           <HtmlFormHelperTextElement
             control={methods.control}
             errorParser={() => 'parsed-message'}

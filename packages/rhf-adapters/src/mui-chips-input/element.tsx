@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { type Transform } from '@piplup/rhf-core';
+
 import { MuiChipsInput } from 'mui-chips-input';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { type UseMuiChipsInputAdapterProps, useMuiChipsInputAdapter } from './adapter';
+
+import { useMuiChipsInputAdapter } from './adapter';
+
+import type { UseMuiChipsInputAdapterProps } from './adapter';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 type MuiChipsInputProps = React.ComponentProps<typeof MuiChipsInput>;
 

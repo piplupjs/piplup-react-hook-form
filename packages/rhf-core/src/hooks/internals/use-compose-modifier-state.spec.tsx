@@ -1,10 +1,11 @@
 import * as React from 'react';
+
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import {
-  useUnstableComposeModifierState as useComposeModifierState,
-  type UseComposeModifierStateProps,
-} from './use-compose-modifier-state';
+
+import { useUnstableComposeModifierState as useComposeModifierState } from './use-compose-modifier-state';
+
+import type { UseComposeModifierStateProps } from './use-compose-modifier-state';
 
 function Comp(props: UseComposeModifierStateProps) {
   const state = useComposeModifierState(props);
@@ -24,7 +25,7 @@ describe('useComposeModifierState', () => {
   });
 
   it('disables on error when disableOnError true', () => {
-    const { container } = render(<Comp fieldError disableOnError />);
+    const { container } = render(<Comp disableOnError fieldError />);
     expect(container.querySelector('[data-cy=s]')?.getAttribute('data-disabled')).toBe('1');
     expect(container.querySelector('[data-cy=s]')?.getAttribute('data-error')).toBe('1');
   });

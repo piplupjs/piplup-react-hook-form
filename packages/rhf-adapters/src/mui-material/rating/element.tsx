@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { Rating, type RatingProps } from '@mui/material';
-import { type Transform } from '@piplup/rhf-core';
-import { type FieldPath, type FieldValues } from 'react-hook-form';
-import { useMuiRatingAdapter, type UseMuiRatingAdapterProps } from './adapter';
+
+import { Rating } from '@mui/material';
+
+import { useMuiRatingAdapter } from './adapter';
+
+import type { UseMuiRatingAdapterProps } from './adapter';
+import type { RatingProps } from '@mui/material';
+import type { Transform } from '@piplup/rhf-core';
+import type { FieldPath, FieldValues } from 'react-hook-form';
 
 export interface MuiRatingElementProps<
   TTransformedValue extends null | number,
