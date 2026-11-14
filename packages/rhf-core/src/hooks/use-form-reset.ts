@@ -45,7 +45,7 @@ export function useFormReset<TFieldValues extends FieldValues = FieldValues>(
         { ...options?.resetOptions, ...keepStateOptions },
       );
     },
-    [control._reset, control._formValues],
+    [control._reset, control._formValues, control._options],
   );
 
   return reset;
