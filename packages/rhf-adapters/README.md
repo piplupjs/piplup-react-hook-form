@@ -21,7 +21,9 @@ npm install @piplup/rhf-adapters @piplup/rhf-core react-hook-form
 ```
 
 Then install the peer dependencies for the subpaths you use, such as
-`@mui/material` or `@mui/x-date-pickers`.
+`@mui/material` or `@mui/x-date-pickers`. The
+[installation guide](https://www.piplupjs.com/docs/rhf-adapters/installation)
+lists what each subpath needs and the supported versions.
 
 ## Usage
 
@@ -61,15 +63,15 @@ field's helper text.
 
 | Import from                                        | Adapts                                                                                                            | Docs                                                                                               |
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `@piplup/rhf-adapters/mui-material`                | TextField, Select, Autocomplete, Checkbox, Radio, Switch, Slider, Rating, inputs, labels, helper text and buttons | [MUI Material](https://www.piplupjs.com/docs/rhf-adapters/mui-material/installation)               |
-| `@piplup/rhf-adapters/mui-x-date-pickers`          | Date, time and date-time pickers, fields, calendars and clocks                                                    | [MUI X Date Pickers](https://www.piplupjs.com/docs/rhf-adapters/mui-x-date-pickers/installation)   |
-| `@piplup/rhf-adapters/html`                        | Native input, textarea, label, button and helper text                                                             | [HTML](https://www.piplupjs.com/docs/rhf-adapters/html/installation)                               |
-| `@piplup/rhf-adapters/mui-tel-input`               | mui-tel-input                                                                                                     | [mui-tel-input](https://www.piplupjs.com/docs/rhf-adapters/mui-tel-input/installation)             |
-| `@piplup/rhf-adapters/mui-file-input`              | mui-file-input                                                                                                    | [mui-file-input](https://www.piplupjs.com/docs/rhf-adapters/mui-file-input/installation)           |
-| `@piplup/rhf-adapters/mui-chips-input`             | mui-chips-input                                                                                                   | [mui-chips-input](https://www.piplupjs.com/docs/rhf-adapters/mui-chips-input/installation)         |
-| `@piplup/rhf-adapters/mui-color-input`             | mui-color-input                                                                                                   | [mui-color-input](https://www.piplupjs.com/docs/rhf-adapters/mui-color-input/installation)         |
-| `@piplup/rhf-adapters/mui-one-time-password-input` | mui-one-time-password-input                                                                                       | [OTP input](https://www.piplupjs.com/docs/rhf-adapters/mui-one-time-password-input/installation)   |
-| `@piplup/rhf-adapters/react-number-format`         | NumericFormat, PatternFormat, NumberFormatBase                                                                    | [react-number-format](https://www.piplupjs.com/docs/rhf-adapters/react-number-format/installation) |
+| `@piplup/rhf-adapters/mui-material`                | TextField, Select, Autocomplete, Checkbox, Radio, Switch, Slider, Rating, inputs, labels, helper text and buttons | [MUI Material](https://www.piplupjs.com/docs/rhf-adapters/installation#mui-material)               |
+| `@piplup/rhf-adapters/mui-x-date-pickers`          | Date, time and date-time pickers, fields, calendars and clocks                                                    | [MUI X Date Pickers](https://www.piplupjs.com/docs/rhf-adapters/installation#mui-x-date-pickers)   |
+| `@piplup/rhf-adapters/html`                        | Native input, textarea, label, button and helper text                                                             | [HTML](https://www.piplupjs.com/docs/rhf-adapters/installation#html)                               |
+| `@piplup/rhf-adapters/mui-tel-input`               | mui-tel-input                                                                                                     | [mui-tel-input](https://www.piplupjs.com/docs/rhf-adapters/installation#mui-tel-input)             |
+| `@piplup/rhf-adapters/mui-file-input`              | mui-file-input                                                                                                    | [mui-file-input](https://www.piplupjs.com/docs/rhf-adapters/installation#mui-file-input)           |
+| `@piplup/rhf-adapters/mui-chips-input`             | mui-chips-input                                                                                                   | [mui-chips-input](https://www.piplupjs.com/docs/rhf-adapters/installation#mui-chips-input)         |
+| `@piplup/rhf-adapters/mui-color-input`             | mui-color-input                                                                                                   | [mui-color-input](https://www.piplupjs.com/docs/rhf-adapters/installation#mui-color-input)         |
+| `@piplup/rhf-adapters/mui-one-time-password-input` | mui-one-time-password-input                                                                                       | [OTP input](https://www.piplupjs.com/docs/rhf-adapters/installation#mui-one-time-password-input)   |
+| `@piplup/rhf-adapters/react-number-format`         | NumericFormat, PatternFormat, NumberFormatBase                                                                    | [react-number-format](https://www.piplupjs.com/docs/rhf-adapters/installation#react-number-format) |
 
 Coming from react-hook-form-mui? See
 [how the two compare](https://www.piplupjs.com/docs/rhf-adapters-vs-react-hook-form-mui).
